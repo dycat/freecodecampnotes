@@ -12,7 +12,9 @@ function smallestCommons(arr) {
     for (let i = min; i <= max; i++ ) {
       arrs.push(i)
     }
+    
     let multiple = min;
+    console.log(multiple)
     arrs.forEach( function(n) {multiple = lcm(multiple, n)} )
     return multiple
   }
@@ -22,5 +24,9 @@ function smallestCommons(arr) {
   }
   
   function gcd(a,b){
-    return b == 0 ? a : smallestCommons([b, a % b]);
+    return b == 0 ? a : gcd(b, a % b);
   }
+
+module.exports = {
+    smallestCommons
+}

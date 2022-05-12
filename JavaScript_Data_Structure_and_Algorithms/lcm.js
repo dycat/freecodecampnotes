@@ -14,7 +14,6 @@ function smallestCommons(arr) {
     }
     
     let multiple = min;
-    console.log(multiple)
     arrs.forEach( function(n) {multiple = lcm(multiple, n)} )
     return multiple
   }

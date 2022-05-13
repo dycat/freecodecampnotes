@@ -9,7 +9,6 @@ function steamrollArray(arr) {
             result_arr.push(item)
         }
     }
-    console.log(result_arr)
     return result_arr.reverse()
 }
 

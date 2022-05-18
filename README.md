@@ -1,6 +1,6 @@
 # Javascript Data Structure and Algorithms
 
-This repository record exercise from (freecodecampe)[https://www.freecodecamp.org/learn/].
+This repository record exercise from [freecodecampe](https://www.freecodecamp.org/learn/).
 
 To install dependency
 ```

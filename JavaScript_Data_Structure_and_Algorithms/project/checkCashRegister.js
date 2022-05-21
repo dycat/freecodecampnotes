@@ -16,6 +16,7 @@
 
 */
 function checkCashRegister(price, cash, cid){
+    let target_fixed = cash - price
     let change_target = cash - price
     let total_change_of_draw = 0
     let change_arr = []
@@ -34,20 +35,21 @@ function checkCashRegister(price, cash, cid){
                 change_target -= current_unit;
                 change_target = change_target.toFixed(2)
             }
-            console.log('part change: %d, target change: %d', part_change, change_target)
+            // console.log('part change: %d, target change: %d', part_change, change_target)
             change_arr.push([cid_reverse[i][0], part_change])
         }
         total_change_of_draw += cid_reverse[i][1]
         
     }
-    if (change_target == total_change_of_draw) {
-        return {status: "CLOSED", change: cid}
+    if (target_fixed == total_change_of_draw) {
+        return {status: "CLOSED", change: cid.reverse()}
     }
-    if (change_target > total_change_of_draw) {
-        return {status: "INSUFFICIENT_FUNDS", change: []}
+    if (change_target == 0){
+        const change_obj = {status: "OPEN", change: change_arr}
+        return change_obj
     }
-    const change_obj = {status: "OPEN", change: change_arr}
-    return change_obj
+
+    return {status: "INSUFFICIENT_FUNDS", change: []}
 }
 
 function get_coin_map(){
